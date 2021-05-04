@@ -3,6 +3,7 @@ package exceptions;
 import model.units.Unit;
 import simulation.Rescuable;
 
+@SuppressWarnings("serial")
 public abstract class UnitException extends SimulationException {
 
 	private Unit unit;

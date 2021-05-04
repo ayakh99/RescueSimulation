@@ -2,6 +2,7 @@ package exceptions;
 
 import model.disasters.Disaster;
 
+@SuppressWarnings("serial")
 public abstract class DisasterException extends SimulationException {
 	private Disaster disaster;
 	

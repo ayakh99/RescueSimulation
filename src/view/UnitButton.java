@@ -5,9 +5,9 @@ import java.awt.Dimension;
 import model.units.Unit;
 import simulation.Address;
 
+@SuppressWarnings("serial")
 public class UnitButton extends MapButton {
 
-	//private MapGridButton targetButton;
 	private Unit unit;
 	private int distanceToTarget;
 	private Address previousAddress;
@@ -32,14 +32,6 @@ public class UnitButton extends MapButton {
 		return o;
 	}
 	
-	/*public void setTheTargetButton(MapGridButton targetBtn) {
-		this.targetButton = targetBtn;
-	}
-	
-	public MapGridButton getTheTargerButton() {
-		return this.targetButton;
-	}*/
-	
 	public Unit getUnit() {
 		return this.unit;
 	}
@@ -60,6 +52,7 @@ public class UnitButton extends MapButton {
 		this.previousAddress = previousAddress;
 	}
 	
+	@SuppressWarnings("unused")
 	private int calculateDistanceToTarget(Unit u) {
 		int x = u.getLocation().getX();
 		int y = u.getLocation().getY();

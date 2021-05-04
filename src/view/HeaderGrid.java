@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+@SuppressWarnings("serial")
 public class HeaderGrid extends JPanel {
 
 	private JLabel currentCycleLabel;

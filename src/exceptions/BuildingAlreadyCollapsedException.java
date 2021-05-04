@@ -2,6 +2,7 @@ package exceptions;
 
 import model.disasters.Disaster;
 
+@SuppressWarnings("serial")
 public class BuildingAlreadyCollapsedException extends DisasterException {
 
 	public BuildingAlreadyCollapsedException(Disaster disaster) {

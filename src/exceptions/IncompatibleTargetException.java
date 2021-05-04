@@ -3,6 +3,7 @@ package exceptions;
 import model.units.Unit;
 import simulation.Rescuable;
 
+@SuppressWarnings("serial")
 public class IncompatibleTargetException extends UnitException {
 
 	public IncompatibleTargetException(Unit unit, Rescuable target) {

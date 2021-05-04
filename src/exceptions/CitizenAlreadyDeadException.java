@@ -2,6 +2,7 @@ package exceptions;
 
 import model.disasters.Disaster;
 
+@SuppressWarnings("serial")
 public class CitizenAlreadyDeadException extends DisasterException {
 
 	public CitizenAlreadyDeadException(Disaster disaster) {

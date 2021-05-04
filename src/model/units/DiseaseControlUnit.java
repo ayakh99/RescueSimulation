@@ -1,17 +1,9 @@
 package model.units;
 
-import exceptions.CannotTreatException;
-import exceptions.IncompatibleTargetException;
-import exceptions.SimulationException;
-import exceptions.UnitException;
-import model.disasters.Infection;
-import model.disasters.Injury;
 import model.events.WorldListener;
-import model.infrastructure.ResidentialBuilding;
 import model.people.Citizen;
 import model.people.CitizenState;
 import simulation.Address;
-import simulation.Rescuable;
 
 public class DiseaseControlUnit extends MedicalUnit {
 
@@ -37,24 +29,4 @@ public class DiseaseControlUnit extends MedicalUnit {
 			heal();
 
 	}
-
-	/*public void respond(Rescuable r) throws UnitException {
-		if(r instanceof Citizen && !canTreat(r)) {
-			throw new CannotTreatException(this, r, "Target is already safe.");
-		}
-		
-		if(!this.isTargetCompatible(r)) {
-			throw new IncompatibleTargetException(this, r, "Target cannot be treated by this unit. Please select another unit.");
-		}
-		
-		if(r instanceof Citizen && !(r.getDisaster() instanceof Infection)) {
-			throw new CannotTreatException(this, r, "Target cannot be treated by this unit. Please select another unit.");
-		}
-		
-		if (getTarget() != null && ((Citizen) getTarget()).getToxicity() > 0
-				&& getState() == UnitState.TREATING)
-			reactivateDisaster();
-		finishRespond(r);
-	}*/
-
 }

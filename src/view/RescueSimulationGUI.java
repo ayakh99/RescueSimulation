@@ -1,22 +1,18 @@
 package view;
 
 import java.awt.Dimension;
-import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageFilter;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
-import javax.imageio.ImageTranscoder;
-import javax.imageio.spi.ImageInputStreamSpi;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import controller.CommandCenter;
@@ -41,7 +37,6 @@ public class RescueSimulationGUI implements ActionListener, SimulationListener {
 	private StartPage startWindow;
 	private MapPage mapWindow;
 	private GameOverPage gameOver;
-	private GUIListener theGUIListener;	//GUI listens to the command AND Simulator listens to the GUI?
 	private ArrayList<JButton> startButtons;
 	private ArrayList<MapGridButton> mapButtons;
 	private ArrayList<MapButton> mapSubButtons;
@@ -86,30 +81,13 @@ public class RescueSimulationGUI implements ActionListener, SimulationListener {
 	
 	private void addSubButtonsToMapButtons() {
 		for(MapGridButton gridButton : this.mapButtons) {
-			/*gridButton.getSimulatables().clear();
-			if(gridButton.getAddress() == this.mapButtons.get(0).getAddress()) {
-				for(int i = 0 ; i<gridButton.getSimulatables().size() ; i++) {
-					if(gridButton.getSimulatables().get(i) instanceof Unit) {
-						i++;
-					}
-					else {
-						MapButton b = new MapButton(gridButton.getSimulatables().get(i));
-						b.setPreferredSize(new Dimension(100,100));
-						gridButton.getSubButtons().add(b);
-						b.addActionListener(this);
-						this.mapSubButtons.add(b);
-					}
-				}
-			}*/
-			//else {
-				for(Simulatable sim : gridButton.getSimulatables()) {
-					MapButton b = new MapButton(sim);
-					b.setPreferredSize(new Dimension(100,100));
-					gridButton.getSubButtons().add(b);
-					b.addActionListener(this);
-					this.mapSubButtons.add(b);
-				}
-			//}
+			for(Simulatable sim : gridButton.getSimulatables()) {
+				MapButton b = new MapButton(sim);
+				b.setPreferredSize(new Dimension(100,100));
+				gridButton.getSubButtons().add(b);
+				b.addActionListener(this);
+				this.mapSubButtons.add(b);
+			}
 		}
 	}
 	
@@ -373,7 +351,7 @@ public class RescueSimulationGUI implements ActionListener, SimulationListener {
 			this.mapWindow.getInfoText().setText(clickedButton.toString());
 			this.lastClicked = clickedButton;
 			
-			if(!clickedButton.getSubButtons().isEmpty()) { //&& clickedButton != this.mapButtons.get(0)) {
+			if(!clickedButton.getSubButtons().isEmpty()) {
 				OverlayPanel overlay = this.mapWindow.getOverlayPanel();
 				overlay.getButtonsPanel().removeAll();
 				overlay.addSubButtons(clickedButton.getSubButtons());
@@ -381,14 +359,6 @@ public class RescueSimulationGUI implements ActionListener, SimulationListener {
 				addSubButtonIcons(clickedButton);
 				overlay.setVisible(true);
 			}
-			/*else if(clickedButton == this.mapButtons.get(0)) {
-				OverlayPanel overlay = this.mapWindow.getOverlayPanel();
-				overlay.getButtonsPanel().removeAll();
-				overlay.addSubButtons(clickedButton.getSubButtons());
-				overlay.setLocation((int) clickedButton.getLocationOnScreen().getX(),(int) clickedButton.getLocationOnScreen().getY());
-				addSubButtonIcons(clickedButton);
-				overlay.setVisible(true);
-			}*/
 			else {
 				if(this.mapWindow.getOverlayPanel().isVisible()) {
 					this.mapWindow.getOverlayPanel().setVisible(false);
@@ -486,7 +456,6 @@ public class RescueSimulationGUI implements ActionListener, SimulationListener {
 						this.mapWindow.getOverlayPanel().setVisible(false);
 						if(this.mapSubButtons.contains(lastClicked) && this.previousLastClicked != null && this.previousLastClicked instanceof MapGridButton) {
 							this.mapWindow.getInfoText().setText(this.previousLastClicked.toString());
-							//this.lastClicked = this.previousLastClicked;
 						}
 						else {
 							if(this.lastClicked instanceof MapGridButton && this.previousLastClicked == null) {

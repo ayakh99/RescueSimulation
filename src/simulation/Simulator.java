@@ -4,10 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
-
-import exceptions.BuildingAlreadyCollapsedException;
-import exceptions.DisasterException;
 import exceptions.SimulationException;
 import model.disasters.Collapse;
 import model.disasters.Disaster;

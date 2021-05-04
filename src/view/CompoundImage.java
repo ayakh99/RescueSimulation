@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class CompoundImage extends JPanel {
 	
 	private JLabel building;
@@ -18,7 +19,6 @@ public class CompoundImage extends JPanel {
 	private JLabel fireTruck;
 	private JLabel evacuator;
 	private JLabel gasControl;
-	//private JLabel emptyLabel;	//if it's needed
 	private ArrayList<JLabel> labels;
 	private ArrayList<String> labelSimpleNames;
 

@@ -3,13 +3,6 @@ package view;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
-
-import model.disasters.Collapse;
-import model.disasters.Disaster;
-import model.disasters.Fire;
-import model.disasters.GasLeak;
-import model.disasters.Infection;
-import model.disasters.Injury;
 import model.infrastructure.ResidentialBuilding;
 import model.people.Citizen;
 import model.units.Evacuator;
@@ -17,6 +10,7 @@ import model.units.Unit;
 import simulation.Address;
 import simulation.Simulatable;
 
+@SuppressWarnings("serial")
 public class MapButton extends JButton{
 
 	private Address address;
@@ -141,7 +135,6 @@ public class MapButton extends JButton{
 		"\nSteps per cycle: " + u.getStepsPerCycle() +
 		"\nTarget info: " + ((u.getTarget() == null)? 
 				"The selected unit does not have a target." : this.simToString((Simulatable) u.getTarget())) +
-		//((u.getTarget() == null)? "" : "\nDistance to Target: " + this.updateDistanceToTarget(u)))) + 
 		((u instanceof Evacuator)?
 			("\nNumber of Passengers: " + ((Evacuator) u).getPassengers().size() +
 			"\nPassengers Info: " +	
@@ -160,27 +153,4 @@ public class MapButton extends JButton{
 		}
 		return o;
 	}
-	
-	/*protected String handleDisaster(Disaster d) {
-		String o1 = "";
-		if(d == null) {
-			return "no disasters";
-		}
-		if(d instanceof Collapse) {
-			o1+= "collapse";
-		}
-		if(d instanceof Fire) {
-			o1+= "fire";
-		}
-		if(d instanceof GasLeak) {
-			o1+="gas leak";
-		}
-		if(d instanceof Infection) {
-			o1+= "infection";
-		}
-		if(d instanceof Injury) {
-			o1+= "injury";
-		}
-		return o1;
-	}*/
 }

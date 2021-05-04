@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import model.disasters.Disaster;
 import simulation.Address;
-import simulation.Simulator;
 
 public interface SimulationListener {
 

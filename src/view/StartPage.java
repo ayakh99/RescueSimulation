@@ -1,29 +1,22 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
+
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.Toolkit;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.SwingConstants;
 
+@SuppressWarnings("serial")
 public class StartPage extends JFrame{
 	private JLabel startPanel;
 	private JPanel startTextPanel;
 	private JPanel buttonPanel;
 	private JButton startButton;
 	private JButton exitButton;
-	//private JLabel startText;
 	
 	public StartPage() {
 		this.setTitle("Rescue Simulation");
@@ -45,7 +38,6 @@ public class StartPage extends JFrame{
 		
 		this.setVisible(true); 
 		this.validate();
-		//this.repaint();
 	}
 	
 	private void constructStartPanel() {
@@ -53,24 +45,13 @@ public class StartPage extends JFrame{
 		this.startPanel.setSize(1400, 800);
 		this.startPanel.setLayout(new GridLayout(2,1));
 		this.startPanel.setOpaque(false);
-		//this.startPanel.setBackground(Color.WHITE);
-		
 		this.add(this.startPanel);
 	}
 	
 	private void constructStartTextPanel() {
 		this.startTextPanel= new JPanel();
 		this.startTextPanel.setSize(1400, 400);
-		//this.startTextPanel.setBackground(Color.WHITE);
 		this.startTextPanel.setOpaque(false);
-		/*this.startText= new JLabel("RESCUE SIMULATION");
-		this.startText.setFont(new Font("monospaced", 4, 60));
-		this.startText.setPreferredSize(new Dimension(1400,100));
-		this.startText.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-		//this.startText.setAlignmentY(200);
-		//this.startText.setHorizontalAlignment(SwingConstants.CENTER);
-		//this.startText.setVerticalAlignment(SwingConstants.CENTER);
-		this.startTextPanel.add(startText);*/
 		this.startPanel.add(startTextPanel);
 	}
 	
@@ -119,21 +100,14 @@ public class StartPage extends JFrame{
 		this.startButton.setOpaque(false);
 		this.startButton.setContentAreaFilled(false);
 		this.startButton.setBorderPainted(false);
-		//this.startButton.setFocusable(false);
-		//this.startButton.setMaximSize(new Dimension(10,20));
-		//leftPanel.add(startButton);
 	}
 	
 	private void constuctExitButton() {
-		//this.exitButton = new JButton("EXIT");
 		this.exitButton = new JButton();
 		
 		this.exitButton.setOpaque(false);
 		this.exitButton.setContentAreaFilled(false);
 		this.exitButton.setBorderPainted(false);
-		//this.exitButton.setFocusable(false);
-		//this.exitButton.setPreferredSize(new Dimension(350,200));
-		//this.buttonPanel.add(exitButton);
 	}
 	
 	public JButton getStartButton() {

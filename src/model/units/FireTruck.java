@@ -1,9 +1,5 @@
 package model.units;
 
-import exceptions.CannotTreatException;
-import exceptions.IncompatibleTargetException;
-import exceptions.SimulationException;
-import model.disasters.Fire;
 import model.events.WorldListener;
 import model.infrastructure.ResidentialBuilding;
 import simulation.Address;

@@ -3,6 +3,7 @@ package exceptions;
 import model.units.Unit;
 import simulation.Rescuable;
 
+@SuppressWarnings("serial")
 public class CannotTreatException extends UnitException{
 
 	public CannotTreatException(Unit unit, Rescuable target) {

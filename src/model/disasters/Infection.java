@@ -1,6 +1,5 @@
 package model.disasters;
 
-import exceptions.BuildingAlreadyCollapsedException;
 import exceptions.CitizenAlreadyDeadException;
 import exceptions.DisasterException;
 import model.people.Citizen;

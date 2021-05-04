@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -17,8 +16,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.border.Border;
 import javax.swing.text.DefaultCaret;
 
-import model.disasters.Disaster;
-
+@SuppressWarnings("serial")
 public class MapPage extends JFrame {
 
 	private HeaderGrid headerGrid;
@@ -43,10 +41,8 @@ public class MapPage extends JFrame {
 		constructOverlayPanel();
 		constructRescuePanel();
 		constructRightPanel();
-		//constructUnitsPanel();
 
 		this.validate();
-		//this.repaint();
 	}
 	
 	public  void constructOverlayPanel() {
@@ -64,7 +60,6 @@ public class MapPage extends JFrame {
 	
 	private void constructLeftPanel() {
 		this.leftPanel = new JPanel(new GridLayout(2,1));
-		//this.leftPanel.setOpaque(false);
 		constructInfoPanel();
 		constructInfoText();
 		constructDisasterPanel();
@@ -89,18 +84,18 @@ public class MapPage extends JFrame {
 	
 	private void constructInfoText() {
 		infoText = new JTextArea();
-		
-		//infoText.setMargin(new Insets(10,10,10,10));
 		infoText.setSize(250,350);
 		infoText.setText("click on any item on the grid to view its info.");
 		infoText.setEditable(false);
 		infoText.setLineWrap(true);
 		infoText.setWrapStyleWord(true);
 		//https://stackoverflow.com/questions/4019981/auto-end-line-in-jtextarea/4019995
+		
 		infoText.setFont(new Font(Font.MONOSPACED, 0, 12));
 		DefaultCaret caret = (DefaultCaret)infoText.getCaret();
 		caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
 		//https://stackoverflow.com/questions/3972337/java-swing-jtextarea-in-a-jscrollpane-how-to-prevent-auto-scroll
+		
 		Border outsideBorder = BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2, true);
 		Border insideBorder = BorderFactory.createEmptyBorder(20, 10, 20, 10);
 		
@@ -149,10 +144,8 @@ public class MapPage extends JFrame {
 	
 	private void constructUnitsPanel() {
 		unitsPanel = new JPanel();
-		//unitsPanel.setSize(300,800);
 		unitsPanel.setPreferredSize(new Dimension(300,800));
 		unitsPanel.setVisible(true);
-		//this.add(unitsPanel, BorderLayout.EAST);
 	}
 	
 	public OverlayPanel getOverlayPanel() {

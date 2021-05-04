@@ -2,7 +2,6 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -11,8 +10,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
+@SuppressWarnings("serial")
 public class GameOverPage extends JFrame {
 
 	private JPanel gameOverPanel;
@@ -50,7 +49,6 @@ public class GameOverPage extends JFrame {
 	
 	private void constructGameOverText() {
 		gameOverText = new JLabel("GAME OVER", JLabel.CENTER);
-		//gameOverText.setPreferredSize(new Dimension(1400, 100));
 		gameOverText.setFont(new Font("Arial", 1, 50));
 		gameOverText.setForeground(Color.WHITE);
 		gameOverPanel.add(gameOverText);
@@ -58,7 +56,6 @@ public class GameOverPage extends JFrame {
 	
 	private void constructScoreText() {
 		scoreText = new JLabel("SCORE: " , JLabel.CENTER);
-		//scoreText.setPreferredSize(new Dimension(1400, 100));
 		scoreText.setFont(new Font("Arial", 1, 50));
 		scoreText.setForeground(Color.WHITE);
 		gameOverPanel.add(scoreText);

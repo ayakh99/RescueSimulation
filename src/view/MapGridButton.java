@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import model.units.Unit;
 import simulation.Address;
-import simulation.Simulatable;
 
+@SuppressWarnings("serial")
 public class MapGridButton extends MapButton {
 
 	private ArrayList<MapButton> subButtons;
@@ -19,12 +19,6 @@ public class MapGridButton extends MapButton {
 	public ArrayList<MapButton> getSubButtons() {
 		return this.subButtons;
 	}
-	
-	/*public boolean containsButtonWithAttribute(Simulatable sim) {
-		for(MapButton button : this.subButtons) {
-			button.contains(p)
-		}
-	}*/
 	
 	public void updateSubButtons() {
 		this.subButtons.clear();

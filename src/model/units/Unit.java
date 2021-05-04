@@ -2,7 +2,6 @@ package model.units;
 
 import exceptions.CannotTreatException;
 import exceptions.IncompatibleTargetException;
-import exceptions.SimulationException;
 import exceptions.UnitException;
 import model.disasters.Collapse;
 import model.disasters.Disaster;
@@ -132,25 +131,23 @@ public abstract class Unit implements Simulatable, SOSResponder {
 
 	}
 
-	public boolean canTreat(Rescuable r)// throws CannotTreatException {
+	public boolean canTreat(Rescuable r)
 	{
 		if (r instanceof Citizen) {
 			Citizen c = (Citizen) r;
-			// if (c.getToxicity() == 0 && c.getBloodLoss() == 0) {
 			if (c.getState().equals(CitizenState.SAFE) || c.getState().equals(CitizenState.RESCUED)) {
 				return false;
 			}
 		} else {
 			ResidentialBuilding b = (ResidentialBuilding) r;
 			if (b.getDisaster() == null || (b.getDisaster() != null && b.getDisaster().isActive() == false)) {
-				// if(b.getFireDamage() == 0 || b.getGasLevel() == 0) {
 				return false;
 			}
 		}
 		return true;
 	}
 
-	public boolean isDisasterCompatible(Rescuable r) // throws IncompatibleTargetException {
+	public boolean isDisasterCompatible(Rescuable r)
 	{
 		if (this instanceof FireTruck && !(r.getDisaster() instanceof Fire)) {
 			return false;
@@ -170,7 +167,7 @@ public abstract class Unit implements Simulatable, SOSResponder {
 		return true;
 	}
 
-	public boolean isTargetCompatible(Rescuable r) // throws IncompatibleTargetException{
+	public boolean isTargetCompatible(Rescuable r)
 	{
 		if ((this instanceof FireTruck || this instanceof GasControlUnit || this instanceof Evacuator)
 				&& r instanceof Citizen) {
